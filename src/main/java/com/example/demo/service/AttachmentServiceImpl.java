@@ -43,9 +43,9 @@ public class AttachmentServiceImpl implements AttachmentService {
         }
 
         if (isSaved)
-            return new Response("Fayllar saqlandi!", true);
+            return new Response("SAVED", true);
 
-        return new Response("Bitta ham file jo'natilmadi!", false);
+        return new Response("NOT FOUND", false);
     }
 
 
@@ -66,9 +66,9 @@ public class AttachmentServiceImpl implements AttachmentService {
         }
 
         if (isSaved)
-            return new Response("Fayl saqlandi!", true);
+            return new Response("SAVED", true);
 
-        return new Response("File saqlashda xatolik!", false);
+        return new Response("ERROR", false);
     }
 
     @SneakyThrows
@@ -85,7 +85,7 @@ public class AttachmentServiceImpl implements AttachmentService {
 
             FileCopyUtils.copy(fileInputStream, response.getOutputStream());
         }
-        return new Response("Attachment not found!", false);
+        return new Response("ATTACHMENT NOT FOUND", false);
     }
 
     @SneakyThrows
@@ -101,12 +101,12 @@ public class AttachmentServiceImpl implements AttachmentService {
                     if (file1.getName().contains(optionalAttachment.get().getName())) {
                         Path fileToDeletePath = Paths.get("src/main/resources/uploadDirectory/" + file1.getName());
                         Files.delete(fileToDeletePath);
-                        return new Response("File deleted!", true);
+                        return new Response("DELETED", true);
                     }
                 }
             }
         }
-        return new Response("File did not delete!", false);
+        return new Response("NOT DELETED", false);
     }
 
     @SneakyThrows
