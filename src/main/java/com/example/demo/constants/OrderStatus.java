@@ -2,11 +2,11 @@ package com.example.demo.constants;
 
 public enum OrderStatus {
 
-    Cancelled("Buyurtma bekor qilindi"),
-    Delivered("Buyurtma etkazib berildi"),
-    Problem("Buyurtma muammosi"),
-    Processing("Buyurtmani qayta ishlash"),
-    Returned("Buyurtma qaytarildi");
+    Cancelled("ORDER CANCELLED"),
+    Delivered("ORDER WILL BE DELIVERED"),
+    Problem("ORDER PROBLEM"),
+    Processing("ORDER PROCESSING"),
+    Returned("ORDER RETURNED");
 
     private final String description;
 
